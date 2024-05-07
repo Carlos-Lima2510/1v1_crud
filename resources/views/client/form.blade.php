@@ -12,11 +12,11 @@
         @endif
 
         @if (isset($client))
-            <form action="{{ route('client.update', $client) }}" method="post">
+            <form action="{{ route('client.update', $client) }}" method="post"> </form>
             @method('PUT')
         @else
             <form action="{{ route('client.store') }}" method="post">
-            
+
         @endif
 
             @csrf
@@ -27,25 +27,25 @@
                 <p class="form-text">Escriba el nombre del cliente</p>
                 @error('name')
                 <p class="form-text text-danger">{{ $message }}</p>
-                @enderror            
+                @enderror
             </div>
 
             <div class ="mb-3">
                 <label for="due" class="form-label">Saldo del Cliente</label>
                 <input type="number" name="due" class="form-control" placeholder="Saldo del Cliente" step="0.01" value="{{ old('due') ?? @$client->due  }}">
-                <p class="form-text">Escriba el nombre del cliente</p>        
+                <p class="form-text">Escriba el nombre del cliente</p>
                 @error('due')
                     <p class="form-text text-danger"> {{ $message }} </p>
-                @enderror    
+                @enderror
             </div>
 
             <div class ="mb-3">
                 <label for="comments" class="form-label">Comentarios</label>
-                <textarea name="comments" cols="30" rows="4" class="form-control""> {{ old('comments') ?? @$client->comments  }} </textarea>
+                <textarea name="comments" cols="30" rows="4" class="form-control"> {{ old('comments') ?? @$client->comments  }} </textarea>
                 <p class="form-text">Escriba algunos comentarios</p>
                 @error('comments')
                     <p class="form-text text-danger"> {{ $message }} </p>
-                @enderror            
+                @enderror
             </div>
 
 
@@ -54,10 +54,9 @@
             @else
             <button type="submit" class="btn btn-info">Guardar Cliente</button>
             @endif
-            
 
         </form>
-    
+
     </div>
-    
+
 @endsection
